@@ -1,0 +1,119 @@
+﻿#The comment at the top here is top kek. "Top Text" is the best :)
+Date: 26 October 2016
+Name: Alexander Taniguchi
+Student ID: 580012(F)
+(6 digit)
+
+=========================================
+Quiz in the slides:
+=========================================
+Slide 25:
+Only y != z (option #2) holds true. The other cases are all false.
+=========================================
+Slide 26 + Slide 27: 
+Only !(x < y && y == z) (option #6) holds true. The other cases are all false.
+=========================================
+Exercise 3-1
+
+#This is the solution to problem 3-1, giving the absolute value of a number, as solved by Alex TW.
+
+
+def abs(x)
+
+  if x < 0
+  return -x
+  elsif x == 0
+  return x
+
+  else x > 0
+
+  return x
+
+end
+
+end
+=========================================
+Exercise 3-3(a)
+
+#This is the solution to problem 3-3(a), giving the boolean divisibility of a number, as solved by Alex TW.
+
+include(Math)
+
+def divisible(x,y)
+ if x%y == 0
+ return print "Yes. Divisibility is OK."
+ else
+ return print "No. Your divisibility will not pass."
+ end
+end
+=========================================
+Exercise 3-5(c)
+
+#This is the solution to problem 3-5(c), giving the median of a set of three numbers, as solved by Alex TW.
+
+include(Math)
+
+def median(x,y,z)
+ if x == y
+ return y
+ elsif y == z
+ return y
+ elsif x == z
+ return x
+ elsif x > y && y > z
+ return y
+ elsif x > y && y < z
+ return x
+ elsif y > x && y > z 
+ return z
+ else y > x && y < z
+ return y
+ end
+end
+=========================================
+Exercise 3-7
+
+#This is the solution to problem 3-7, detecting whether a,b,c (lengths of 3 sides) form the side lengths for a triangle, as written by Alex TW.
+
+include(Math)
+
+def triangle(a, b, c)
+  if a <= 0 || b <= 0 || c <= 0 || a+b <= c || b+c <=a || a+c <=b
+    return "This triangle shall not pass."
+  else 
+    return "This too shall pass a triangle."
+  end
+end
+=========================================
+Exercise 3-10
+-----------------------------------------
+Exercise 3-10(a)
+
+#This is the problem 3-10(a), in which we use the && operator for divisibility, as written by Alex TW.
+
+def print_divnum(n)
+  for i in 1..n
+  if (i % 7 == 0) && (i % 3 != 0)
+	print "Value that passed the test is #{i}. \n"
+  else
+    print("This entry has not failed, but has not yet passed either. \n")
+  end
+  end
+end
+=========================================
+Exercise 3-10(b)
+
+#This is the problem 3-10(b), in which we use the || operator for divisibility, as written by Alex TW.
+
+def print_divnum2(n)
+  for i in 1..n
+  if (i % 7 == 0) || (i % 11 == 0)
+	print "Value that passed the test is #{i}. \n"
+  else
+    print("This entry has not failed, but has not yet passed either. \n")
+  end
+  end
+end
+=========================================
+That's all for this submission. Thank you.
+=========================================

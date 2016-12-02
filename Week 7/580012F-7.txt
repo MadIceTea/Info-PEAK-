@@ -1,0 +1,78 @@
+#This is coming very late. Many apologies!!
+#Date: for 9 November 2016. Typing set on: 2 December 2016
+#Name: Alexander Taniguchi
+#Student ID: 580012(-F)
+
+=========================================
+Slides exercises 2-1:
+Used online website to solve Tower of Hanoi problem at n=4. Took a little while, but the though process became apparent after not too long.
+
+The idea is that if you move a smaller block out of the way, you then have to take a larger block and stack that smaller block on top of it. It is something of a recursive process from there, but I solved my 15 steps using the center tower. I'm not sure yet if it is possible to do 15 steps for moving towards the far tower.
+=========================================
+First program: The Sierpinski Triangles
+
+#This is the solution to the first exercise, Week 7.
+
+load("./make2d.rb")
+load("./Sierpinski_rec.rb")
+
+def sierpinski_loop(n)
+	c = make2d(n+1,n+1)
+	for i in 0..n
+		c[i][0] = 1
+		for j in 1..(i-1)
+			c[i][j] = ((c[i-1][j-1] + c[i-1][j]) % 2)
+		end
+		c[i][i] = 1
+	for j in 0...n
+		c[i][j] = 1 - c[i][j]
+	end
+	end
+	c
+end
+--------------
+Referenced program: "Sierpinski_rec.rb"
+#Sub-program to help run the loop program.
+
+load("./make1d.rb")
+load("./make2d.rb")
+
+def sierpinski_rec(n)
+   a = make2d(2**n, 2**n)
+   subsierpinski(a, n, 0, 0)
+   a
+end
+
+def subsierpinski(a, n, x, y)
+   if n == 0
+     a[y][x] = 1
+   else
+     subsierpinski(a, n-1, x, y)
+     subsierpinski(a, n-1, x, y + 2**(n-1))
+     subsierpinski(a, n-1, x + 2**(n-1), y + 2**(n-1))
+   end
+end
+=========================================
+Second program: The Tower of Hanoi
+
+#Turns needed at minimum for n=# towers.
+def hanoi_turns(n)
+	if n==0
+	0
+	else
+	hanoi_turns(n-1) + 1 + hanoi_turns(n-1)
+end
+end
+----------
+#Prints ordering of necessary steps.
+#At least in windows, the new line isn't really working. Not sure why.
+def hanoi(n, a, b, c)
+	if n==1
+		print "Start at ", a, " and go to ", b
+	else
+		hanoi(n-1, a, c, b)
+		print "Start at ", a, " and go to ", b
+		hanoi(n-1, c, b, a)
+	end
+end
+=========================

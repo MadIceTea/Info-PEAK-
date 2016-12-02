@@ -1,0 +1,57 @@
+﻿#Candy makes the day better. :)
+Date: 31 October 2016. Boo! Happy Halloween.
+Name: Alexander Taniguchi
+Student ID: 580012(F)
+(6 digit)
+
+=========================================
+Quiz in the slides:
+What quiz? Was I the only one who can't find it?
+=========================================
+My country flag.
+
+#This is my code to make a cancerous meme flag of the Previously Communist Republic of Romania.
+#The yellow took 10 minutes of experimenting to make.
+
+def flag()
+	b=[0,0.2,0.6]
+	y=[0.8,0.8,0.2]
+	r=[1,0,0]
+	
+	[[b,b,y,y,r,r],
+	[b,b,y,y,r,r],
+	[b,b,y,y,r,r],
+	[b,b,y,y,r,r],
+	[b,b,y,y,r,r]]
+end
+
+r=flag()
+show r
+=========================================
+Sphere.rb
+
+#Final program to make everything work again - draw me a sphere!
+
+load("./distance.rb")
+load("./make2d.rb")
+
+def b(r,x,y)
+	if r >= dist(x,y)
+	(r-(dist(x,y)))/r
+	else r < dist(x,y)
+	1
+	end
+ end
+
+def sphere(r)
+    image = make2d(2*r+1, 2*r+1)
+    for y in 0..(2*r)
+        for x in 0..(2*r)
+            image[y][x] = b(r,x,y)
+        end
+    end
+    show image
+end
+=========================================
+That's all for this submission. Thank you.
+=========================================

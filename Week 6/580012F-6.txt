@@ -1,0 +1,116 @@
+﻿#This is coming very late. Many apologies!!
+Date: for 16 November 2016. Typing set on: 1 December 2016
+Name: Alexander Taniguchi
+Student ID: 580012(-F)
+
+=========================================
+Quiz in the slides:
+Seems to have been no quiz this time.
+=========================================
+First program: Factorial Program
+
+#This is the first problem of the programming exercises, Week 6. Part 1.
+#Factorial multiplication of the numbers from 1 to n
+#This is the repetition.
+
+def factorial_loop(n)
+    s = 1
+    for i in 1..n
+        s = s*i
+    end
+    s
+end
+
+#This is the first problem of the programming exercises, Week 6. Part 2.
+#Factorial multiplication of the numbers from 1 to n
+#This is the recursion.
+
+def factorial(n)
+if n >= 2
+        factorial(n-1) * n 
+    else
+        1 
+    end
+end
+=========================================
+Second program: The "Sump"
+
+#This is the referenced "multiple.rb" file.
+def multiple(p,n)
+    n % p == 0
+end
+
+#This is the second problem of the programming exercises, Week 6. Part 1.
+#Sum of multiples of p in between 1 and n
+#This is the repetition.
+
+load ("./multiple.rb")
+
+def sump_loop(p,n)
+	s=0
+	for i in 1..n
+		if multiple(p,i)
+			s=s+i
+		end
+	end
+	s
+end
+
+#This is the second problem of the programming exercises, Week 6. Part 2.
+#Sum of multiples of p in between 1 and n
+#This is the recursion.
+
+def sump(p,n)
+    if n >= 1
+        if multiple(p,n)
+            sump(p,n-1)+n
+        else
+            sump(p,n-1)
+        end
+    else
+        0
+    end
+end
+=========================================
+Third program: 
+
+#This is the referenced "pnum.rb" program I wrote.
+
+def pnum(p)
+	(2**(p-1)) * ((2**p)-1)
+end
+
+#The main formula for finding perfect numbers (as a formula): 2**(p−1)*((2**p)−1)
+#The above will be made into a seperate file for the purposes of the rest of this code.
+#This is the beginning of problem 3 for Week 6. Part 1 - repetition.
+#This is perfectly functional code.
+
+load ("pnum.rb")
+
+def perfect_loop(p)
+	s = 0
+	for i in 2..p-1
+		if p % i != 0
+			j = s + pnum(p)
+		end
+	end
+	j
+end
+
+#The main formula for finding perfect numbers (as a formula): (2**(p−1))*((2**p)−1)
+#The above will be made into a seperate file for the purposes of the rest of this code.
+#This is the beginning of problem 3 for Week 6. Part 2 - recursion.
+#This is a non-functional program, and I realised that I would not spend any more time on it when I noticed that it was not a required part of the assignment.
+
+load ("pnum.rb")
+
+def perfect(p)
+    for i in 2..(p-1)
+        if p % i != 0  
+           pnum(p)
+        else
+           pnum(p-1)
+        end
+    end
+end
+=========================================

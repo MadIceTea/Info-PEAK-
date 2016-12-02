@@ -1,0 +1,92 @@
+#This is coming very late. Many apologies!!
+Date: for 9 November 2016. Typing set on: 30 November 2016
+Name: Alexander Taniguchi
+Student ID: 580012(-F)
+
+=========================================
+Quiz in the slides:
+Seems to have been no quiz this time.
+=========================================
+First program: Embedded box design
+
+#This starts the embedded box problem (Problem 1) in Week 5.
+#This program has been optimized for the input of "BoxImageHw(8)".
+
+load("./make2d_color.rb")
+
+def BoxImageHw(s)
+  image = make2d_color(s,s)
+  for x in 0..(s-1)
+     for y in 0..(s-1)
+        image[y][x]=[1,0,0] # paint red
+       #If (x,y) is within some box, then paint white or light blue
+        if inBox(x,y,s/5,s/5,s/1.25,s/3)
+          image[y][x]=[1,1,1] #paints white
+		end
+		if inBox(x,y,s/5,s/2.5,s/1.25,s/1.5)
+           image[y][x]=[0,1,1] #paints light blue
+		end
+     end
+   end
+image
+end
+   
+def inBox(x,y,a,b,c,d)
+    a<=x && x<=c && b<=y && y<=d
+end
+=========================================
+Second program: Animated Circle (too bad I can't save as a GIF file)
+
+#This starts the Circle Animation problem (Problem 2) in Week 5.
+#There should be a lesson in why lines 11 and 12 must start with the "s-" part.
+#This took me about an hour to figure out finally.
+#When you see the difference after an hour, you might feel like this guy "https://www.youtube.com/watch?v=aZHvd0ks7Es"
+#Sample image included was ran at circle(100,2016)
+
+include(Math)
+load ("./make2d.rb")
+
+def circle(s,n)
+ t = 2*s+1
+ image = make2d(t,t)
+	 for p in 0..(n-1)
+	 theta = p*2*PI/n
+	 y = s-(0.5*t*(sin(theta)))
+	 x = s-(0.5*t*(cos(theta)))
+	 image[y.to_i][x.to_i] = 1
+	 show(image)
+	 end
+image
+end
+=========================================
+Third program was optional, and with time constraint, I must opt to skip it.
+=========================================
+Fourth program: The random circles
+
+#This starts the random circle problem (Problem 4) in Week 5.
+#This program was ran at "show randomcircle(100)"
+
+include(Math)
+load ("./make2d_color.rb")
+
+def randomcircle(s)
+a = rand(s)
+b = rand(s)
+r = rand(s)
+c = [rand(),rand(),rand()]
+image = make2d_color(s,s)
+	for x in 0...(s-1)
+	for y in 0...(s-1)
+	image[y][x]=[0,0,0]
+		if inCircle(x,y,a,b,r)
+		image[y][x] = c
+		end
+	end
+end
+
+def inCircle(x,y,a,b,r)
+(x-a)**2+(y-b)**2 <= r**2
+end
+
+image
+end

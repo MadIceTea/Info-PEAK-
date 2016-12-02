@@ -1,0 +1,21 @@
+#!/bin/sh
+# set ISRB_HOME to the directory where this file resides.
+if [ -z "$ISRB_HOME" ] ; then
+   if s=`readlink "$0"`; then	# -f is not available on Mac OS X...
+       ISRB_HOME=`dirname "$0"`/`dirname "$s"`       
+   else
+       ISRB_HOME=`dirname "$0"`
+   fi
+   export ISRB_HOME
+fi
+# find the JRuby program.
+if which jruby > /dev/null; then		# in PATH
+   ruby=jruby
+elif [ -f  "$JRUBY_HOME/bin/jruby" ]; then	# in $JRUBY_HOME/bin
+   ruby="$JRUBY_HOME/bin/jruby"
+else
+   echo "Set JRUBY_HOME to the JRuby's installation directory."
+   exit 1
+fi
+# run JRuby in the interactive (jirb) mode with requiring the ISRB package.
+"$ruby" -I "$ISRB_HOME/ruby" -S "jirb" -risrb --prompt classic $@
