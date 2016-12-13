@@ -74,6 +74,9 @@ end
 =========================================
 Third program: 
 
+#But first, the answer to the question asked: 496 is the smallest perfect number <= 1000 [as the next one is 8198]
+#(made from using the p-values of 5 and 7, respectively - explained in following.)
+
 #This is the referenced "pnum.rb" program I wrote.
 
 def pnum(p)

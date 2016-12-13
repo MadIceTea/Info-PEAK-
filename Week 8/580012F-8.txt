@@ -24,7 +24,11 @@ Exercise 8-3: Computational Time for fibr
 
 In the tree, we can see that Tr(k) refers to the most currently calculalted fibonnaci number (let's just say the 4th one, to keep things easy, but it is arbitrary). As it is a recursive method, we also are calculating both the term before and one more before (for a total of two previous terms) and then there must be the operation made to add them together. This addition is balanced by the addition of a constant 3 at the end, which is an arbitrary constant, but determined by the previous two entries as a way to keep a running summation of how many levels cumulatively for each entry from the end index has been ran to obtain the end index that is printed out by the program. Hence, this program shows that until at least three levels are ran, this program cannot complete completely efficiently; and with the intial level f(k) it would be ran from - this will make a total of 4 fibonnaci levels, or 4f(k).
 
+^^Let's ignore this, as Prof. Kakimura told me.
+
 As the nodes and edges show, every node up to fib(3) will require 2 edges to feed into the calculation, for reasons as explained above, and in the way that the code is written (adding a Tr(k-3) will change the pyramid shape and corresponding math accordingly). After fib(3), at fib(4), there is now enough information to re-use previous results, and only one edge is needed to feed into the next node, meaning that the efficient calcuation time should be similar to 4f(k) for this program, as it is written here.
+
+^^This explanation is much closer. Indeed, there are two edges leading into the nodes, but it should be noted, that similar to what is in the slides, there is a primary red set of f(k) values leading up to the all-efficient fib(4) and there is another blue set of values, f(k)-1 [almost f(k)] making a total of 2f(k). Beyond this, both have two edges until the fib(4) mark, so if we factor in edges, it is 2 [edges] * 2f(k) [primary and secondary values] for a product total of 4f(k).
 =========================================
 Exercise 8-4: Review of Eigenvalues
 
@@ -32,3 +36,4 @@ Exercise 8-4: Review of Eigenvalues
 6(b) Eigenvalues are found by the the tE-A formula. We apply this to the given matrix, and will get a determinant of t^2-t-1. If we factor this, then we will get the result of λ = 1/2(1+√5) or 1/2(1-√5).
 6(c) I took the liberty of renaming the U, as I didn't like the variable, but reference to https://i.imgur.com/tdZpfX5.jpg for the answer to this question.
 6(d) I would think that A^k matrix is the same as the matrix A as given previously [(1,1);(1,0)], and f(k) is covered by the f(1) and f(0) that are direct representations of the λ1 and λ2 eigenvalues.
+^^This is supposedly not the best answer for 6(d), but the answer is supposedly in the slides. Look for yourself.
