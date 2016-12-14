@@ -1,7 +1,7 @@
 def intcount_loop(a,b,c)
+	x = a[i]
+	j = 0
 	for i in 0..(a.length()-1)
-		x = a[i]
-		j = 0
 		for j in 0…(b.length()-1)
 			if b[j] == 0
 				b[j] = x
