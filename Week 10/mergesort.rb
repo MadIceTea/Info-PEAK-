@@ -1,7 +1,10 @@
+#This code is written by Alex T.W.
+
 load("./is_even.rb")
 load("./make2d.rb")
+#Creative re-use of make2d's array nature to call the new array with make2d instead of the more regular term, array.new
 
-def merge(a,b)
+def merge(a,b) #Important to know a and b are already sorted.
   c = make1d(a.length()+b.length())
   ia=0	
   ib=0
@@ -17,7 +20,7 @@ def merge(a,b)
       ic = ic + 1
     end
   end
-  # fill in this part
+  c+a+b #Take what you know have of c + a or b, the blank one + the other of a or b, the one with the remainder of your sorted terms.
   c
 end
 
@@ -40,7 +43,3 @@ def mergesort(a)
   end
   from[0]
 end
-
-
-# version 1.8
-# see http://lecture.ecc.u-tokyo.ac.jp/johzu/joho-kagaku/
